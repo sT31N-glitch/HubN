@@ -1,7 +1,14 @@
-body {font-family: Monaco}
-body {background-color: rgb(66, 66, 66)}
-.center{text-align: center; border: 5px outset blueviolet}
-h1 {font-size: 45px; margin-left:25px;color:whitesmoke}
-h2 {color:whitesmoke}
-.postbox{position:absolute; bottom:0px}
-.subpostbox{position:absolute; bottom:12px; margin-left:1865px}
+body {font-family: Monaco; 
+    background-color: rgb(61, 69, 75)}
+.center{
+    text-align: center; 
+    border: 5px outset rgb(117,93,255)}
+h1 {font-size: 45px; 
+    margin-left:25px;
+    color:whitesmoke}
+h2 {color:rgb(230,231,234)}
+.postbox{position:absolute; 
+    bottom:0px}
+.subpostbox{position:absolute; 
+    bottom:12px; 
+    margin-left:1865px}
