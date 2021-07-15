@@ -1,0 +1,2 @@
+1. Open this folder in command prompt.
+2. Type 'node App.js'(Requires nodejs)

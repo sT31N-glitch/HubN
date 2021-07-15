@@ -1,41 +1,43 @@
 body {
-    font: 20px Monaco, monospace;
-    background-color: rgb(200,200,200);
+    font: 20px Eina, monospace;
+    color: rgb(202, 250, 131);
+    background-color: rgb(17,17,17);
 }
 
-h1 {
-    font-size: 45px; margin-left:25px;
+img {
+    width: 10%;
 }
 
+/* center, postbox, and subpostbox are all used in formatting */
 .center{
-    text-align: center;
-    border: 5px outset blueviolet;
+    border: 5px outset rgb(117, 93, 255);
 }
 
 .postbox{
-    align-content: center;
     position:absolute;
-    bottom:0px;
+    bottom: 5px; 
 }
 
 .subpostbox{
-    align-content: center;
     position:absolute; 
-    bottom:12px;
-    margin-left:1865px;
+    bottom: 12px; 
 }
 
+/* Class used by all buttons on the website */
 .button-fancy{
     padding: 5px 12.5px;
-    font: 20px Monaco, monospace;
+    font: 20px Eina, monospace;
+    background-color: rgb(202, 250, 131);
 }
 
+/* Class used by text boxes holding code */
 .codeText{
-    font: 20px Monaco, monospace;
+    font: 20px Eina, monospace;
     color: white;
-    background-color: rgb(30,30,30);
+    background-color: rgb(46,46,46);
 }
 
+/* Class used by non-code text boxes */
 .fancyText{
-    font: 20px Monaco, monospace;
+    font: 20px Eina, monospace;
 }

@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<div id=A onclick=slide()><button>Click me for nothing</button></div>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,18 +8,26 @@
     <title>HubN</title>
 </head>
 <body>
-    <h1>HubN</h1>
-
+    <img src="/HubN_Logo.png" alt="HubN Logo">
+    
     <div class= center>
+        <!-- The following divs act as the display for the message -->
         <div id="authorDisplay" class="fancyText"></div>
         <div id="codeDisplay" class="codeText"></div>
         <div id="summaryDisplay" class="fancyText"></div>
+        <div id="buttonDisplay">
+            <form action="/runFile" method="POST">
+                <input type="hidden" name="messageID" id="messageID">
+                <input type="submit" value="Run" class="button-fancy">
+            </form>
+        </div>
 
+        <!-- These elements allow the user to post code to the website -->
         <form action="/submitPost" method="POST" class="postSubmission">
             <div class=postbox>
                 <input type="text" id="author" name="author" class="fancyText" placeholder="Author"><br>
-                <textarea name="code" id="code" cols="75" rows="5" class="codeText" placeholder="Code"></textarea><br>
-                <textarea name="summary" id="summary" cols="75" rows="5" class="fancyText" placeholder="Summary"></textarea><br>
+                <textarea name="code" id="code" cols="75" rows="2" class="codeText" placeholder="Code"></textarea><br>
+                <textarea name="summary" id="summary" cols="75" rows="2" class="fancyText" placeholder="Summary"></textarea><br>
                 <input type="submit" value="Post" class="button-fancy">
             </div>
             <div class=subpostbox></div>
@@ -32,21 +38,23 @@
         const xhttp = new XMLHttpRequest();
 
         xhttp.onload = function(){
+            // Process message data
             let lines = this.responseText.split('|#|');
-            console.log(lines[1]);
             let mAuthor = lines[0].split(',');
             let mCode = lines[1].split(',');
             let mSummary = lines[2].split(',');
 
-            console.log(mCode[0]);
-
+            // Generate a random number
             let rand = Math.floor(Math.random() * mAuthor.length);
-            console.log(rand);
-            document.getElementById('authorDisplay').innerText = mAuthor[rand];
-            document.getElementById('codeDisplay').innerHTML = mCode[rand].replace('\n', '<br>');
-            document.getElementById('summaryDisplay').innerText = mSummary[rand];
+            // Set the message display equal to the randomly selected message
+            document.getElementById('authorDisplay').innerHTML = mAuthor[rand];
+            document.getElementById('codeDisplay').innerHTML = mCode[rand].replace(/\n/g, '<br>');
+            document.getElementById('summaryDisplay').innerHTML = mSummary[rand].replace(/\n/g, '<br>');
+            // This is stored to be used by /runFile. It determines which message to pull code from
+            document.getElementById('messageID').value = rand;
         }
 
+        // This allows the user to get data on every message on the website
         xhttp.open("GET", "/getPosts");
         xhttp.send();
     </script>
