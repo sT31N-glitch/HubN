@@ -15,7 +15,14 @@
 </div>
 <div class=postbox>  <textarea placeholder="Type here..." name="area to post thing" id="waagh" cols="262" rows="2"></textarea></div> 
 <div class=subpostbox><button name=submit>Post</button></div>
+<div id=aout></div>
     <script>
+			function display(author,code,summary){
+			Author=document.getElementById`aout`
+            A=Array(author.length).fill(0).map((x,e)=>[author[e],code[e],summary[e]].join`\n`).join`\n\n`
+			
+			Author.innerText=A
+		}
         const xhttp = new XMLHttpRequest();    
 
         xhttp.onload = function(){
@@ -24,6 +31,7 @@
             let mAuthor = lines[0].split(',');
             let mCode = lines[1].split(',');
             let mSummary = lines[2].split(',');
+			display(mAuthor,mCode,mSummary)
         }
 
         xhttp.open("GET", "/getPosts");
@@ -32,3 +40,4 @@
 
 </body>
 </html>
+
