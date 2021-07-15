@@ -1,0 +1,41 @@
+body {
+    font: 20px Monaco, monospace;
+    background-color: rgb(200,200,200);
+}
+
+h1 {
+    font-size: 45px; margin-left:25px;
+}
+
+.center{
+    text-align: center;
+    border: 5px outset blueviolet;
+}
+
+.postbox{
+    align-content: center;
+    position:absolute;
+    bottom:0px;
+}
+
+.subpostbox{
+    align-content: center;
+    position:absolute; 
+    bottom:12px;
+    margin-left:1865px;
+}
+
+.button-fancy{
+    padding: 5px 12.5px;
+    font: 20px Monaco, monospace;
+}
+
+.codeText{
+    font: 20px Monaco, monospace;
+    color: white;
+    background-color: rgb(30,30,30);
+}
+
+.fancyText{
+    font: 20px Monaco, monospace;
+}

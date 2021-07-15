@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="/css/home.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HubN</title>
 </head>
 <body>
     <h1>HubN</h1>
 
-<div class= center>
-    <h2>placeholder</h2>
-</div>
-<div class=postbox>  <textarea name="area to post thing" id="waagh" cols="262" rows="2"></textarea></div> 
-<div class=subpostbox><button name=submit>Post</button></div>
+    <div class= center>
+        <h2>placeholder</h2>
+
+        <form action="/submitPost" method="POST" class="postSubmission">
+            <div class=postbox>
+                <input type="text" id="author" name="author" class="fancyText" placeholder="Author"><br>
+                <textarea name="code" id="code" cols="75" rows="5" class="codeText" placeholder="Code"></textarea><br>
+                <textarea name="summary" id="summary" cols="75" rows="5" class="fancyText" placeholder="Summary"></textarea><br>
+                <input type="submit" value="Post" class="button-fancy">
+            </div>
+            <div class=subpostbox></div>
+        </form>
+    </div>
+
     <script>
         const xhttp = new XMLHttpRequest();    
 
         xhttp.onload = function(){
-            console.log(this.responseText);
             let lines = this.responseText.split('\n');
             let mAuthor = lines[0].split(',');
             let mCode = lines[1].split(',');

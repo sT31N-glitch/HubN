@@ -34,13 +34,11 @@ app.get('/', function(request, response){
         response.setHeader('Content-Type', 'text/plain');
         response.setHeader('Content-Disposition', 'attachment; filename=messages');
         response.write(content, 'utf-8');
-        console.log(content);
         response.end();
     });
 
 app.post('/submitPost', function(request, response){
     message.Push(request.body.author, request.body.code, request.body.summary);
-    console.log(message.GetMessages()[0]);
     response.writeHead(301, { "Location": "http://" + URL + '/' });
     return response.end();
 });
