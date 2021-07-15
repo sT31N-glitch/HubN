@@ -27,9 +27,9 @@ app.get('/', function(request, response){
 });
     app.get('/getPosts', function(request, response){
         let content = '';
-        content += message.GetMessages()[0] + '\n';
-        content += message.GetMessages()[1] + '\n';
-        content += message.GetMessages()[2] + '\n';
+        content += message.GetMessages()[0] + '|#|';
+        content += message.GetMessages()[1] + '|#|';
+        content += message.GetMessages()[2] + '|#|';
         // fs.writeFileSync('./files/temp/messages.xml', content);
         response.setHeader('Content-Type', 'text/plain');
         response.setHeader('Content-Disposition', 'attachment; filename=messages');

@@ -13,7 +13,9 @@
     <h1>HubN</h1>
 
     <div class= center>
-        <h2>placeholder</h2>
+        <div id="authorDisplay" class="fancyText"></div>
+        <div id="codeDisplay" class="codeText"></div>
+        <div id="summaryDisplay" class="fancyText"></div>
 
         <form action="/submitPost" method="POST" class="postSubmission">
             <div class=postbox>
@@ -27,38 +29,22 @@
     </div>
 
     <script>
-        A=document.getElementById`A`
-        A.style.position='absolute'
-        f=1
-        function slide(){
-        f=1-f
-        t=0
-        a=setInterval(function(){
-        t++;
-        A.style.left=(!f?(100-100/(1+t)):0)+"px";
-        if(t > 80 && f == 0){
-        A.style.left='100px';
-        clearInterval(a)
-        }
-        })
-
-
-        }
-			function display(author,code,summary){
-			Author=document.getElementById`aout`
-            A=Array(author.length).fill(0).map((x,e)=>[author[e],code[e],summary[e]].join`\n`).join`\n\n`
-
-			Author.innerText=A
-		}
-        
         const xhttp = new XMLHttpRequest();
 
         xhttp.onload = function(){
-            let lines = this.responseText.split('\n');
+            let lines = this.responseText.split('|#|');
+            console.log(lines[1]);
             let mAuthor = lines[0].split(',');
             let mCode = lines[1].split(',');
             let mSummary = lines[2].split(',');
-			display(mAuthor,mCode,mSummary)
+
+            console.log(mCode[0]);
+
+            let rand = Math.floor(Math.random() * mAuthor.length);
+            console.log(rand);
+            document.getElementById('authorDisplay').innerText = mAuthor[rand];
+            document.getElementById('codeDisplay').innerHTML = mCode[rand].replace('\n', '<br>');
+            document.getElementById('summaryDisplay').innerText = mSummary[rand];
         }
 
         xhttp.open("GET", "/getPosts");
