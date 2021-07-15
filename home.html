@@ -27,29 +27,30 @@
     </div>
 
     <script>
-	A=document.getElementById`A`
-A.style.position='absolute'
-f=1
-function slide(){
-f=1-f
-t=0
-a=setInterval(function(){
-t++;
-A.style.left=(!f?(100-100/(1+t)):0)+"px";
-if(t > 80 && f == 0){
-A.style.left='100px';
-clearInterval(a)
-}
-})
+        A=document.getElementById`A`
+        A.style.position='absolute'
+        f=1
+        function slide(){
+        f=1-f
+        t=0
+        a=setInterval(function(){
+        t++;
+        A.style.left=(!f?(100-100/(1+t)):0)+"px";
+        if(t > 80 && f == 0){
+        A.style.left='100px';
+        clearInterval(a)
+        }
+        })
 
 
-}
+        }
 			function display(author,code,summary){
 			Author=document.getElementById`aout`
             A=Array(author.length).fill(0).map((x,e)=>[author[e],code[e],summary[e]].join`\n`).join`\n\n`
 
 			Author.innerText=A
 		}
+        
         const xhttp = new XMLHttpRequest();
 
         xhttp.onload = function(){
